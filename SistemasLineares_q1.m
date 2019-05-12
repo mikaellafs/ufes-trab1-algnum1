@@ -14,8 +14,12 @@ load matrizes/fs_183_3.mat
 A = Problem.A
 [L, U, P] = lu(A)
 spy(A)
+pause
 spy(L)
+pause
 spy(U)
+disp('Pressione qualquer tecla para ir para proxima matriz...');
+pause
 
 %--------------------------------------------------------------------------------------
 % Matriz 2:
@@ -24,8 +28,12 @@ load matrizes/orsirr_1.mat
 A = Problem.A
 [L, U, P] = lu(A)
 spy(A)
+pause
 spy(L)
-spy(U) 
+pause
+spy(U)
+disp('Pressione qualquer tecla para ir para proxima matriz...');
+pause
 
 %--------------------------------------------------------------------------------------
 % Matriz 3:
@@ -34,8 +42,12 @@ load matrizes/plat362.mat
 A = Problem.A
 [L, U, P] = lu(A)
 spy(A)
+pause
 spy(L)
-spy(U) 
+pause
+spy(U)
+disp('Pressione qualquer tecla para ir para o proximo item...');
+pause
 
 %--------------------------------------------------------------------------------------
 
