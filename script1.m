@@ -1,13 +1,6 @@
 load bcsstk01.mat;
 A = Problem.A;
-#load rail_5177.mat
-#D = Problem.A
-#load orsirr_1.mat
-#E = Problem.A
-#load plat362.mat
-#F=Problem.A
 
-### PEGANDO L U P DAS 3 MATRIZES ###
 disp("TRABALHANDO COM A PRIMEIRA MATRIZ")
 #A) salvando as matrizes L U e P
  
