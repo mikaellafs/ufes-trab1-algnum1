@@ -1,9 +1,5 @@
 load bcsstk01.mat;
 A = Problem.A;
-load fs_183_3.mat;
-B = Problem.A;
-load hor_131.mat;
-C = Problem.A;
 #load rail_5177.mat
 #D = Problem.A
 #load orsirr_1.mat
@@ -81,7 +77,9 @@ cond(A)
 ##aqui é para espear o usuario digitar algo e continuar##
 while(input("Tecle enter para continuar..."))
 end
- 
+close all
+load fs_183_3.mat;
+B = Problem.A;
 disp("TRABALHANDO COM A SEGUNDA MATRIZ")
 #A) 
 [L1,U1,P1]=lu(B);
@@ -111,7 +109,9 @@ norm((b1-B*x1)/b1,inf)
 cond(B)
 while(input("Tecle enter para continuar..."))
 end
-
+close all
+load hor_131.mat;
+C = Problem.A;
 disp("TRABALHANDO COM A TERCEIRA MATRIZ")
 #A) 
 [L2,U2,P2]=lu(C);
