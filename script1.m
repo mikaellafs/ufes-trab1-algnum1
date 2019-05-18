@@ -7,27 +7,27 @@ B = Problem.A;
 load "hor_131.mat";
 C = Problem.A;
 
-fprintf('QUESTÃƒO 1\nObjetivo: Observar o comportamento dos mÃ©todos diretos, para cada uma das matrizes escolhidas.\n\n')
+fprintf('QUESTAO 1\nObjetivo: Observar o comportamento dos metodos diretos, para cada uma das matrizes escolhidas.\n\n')
 
 ######################### LETRA A: #########################
-disp('a) Obtenha os fatores L,U e P e observe a configuraÃ§Ã£o de esparsidade das matrizes A,L e U.')
-fprintf('O que podemos observar com relaÃ§Ã£o ao preenchimento no processode decomposiÃ§Ã£o LU?\n\n')
+disp('a) Obtenha os fatores L,U e P e observe a configuração de esparsidade das matrizes A,L e U.')
+fprintf('O que podemos observar com relação ao preenchimento no processo de decomposição LU?\n\n')
 pause;
 
-% DecompÃµe uma matriz A e obtÃ©m a esparsidade de L, U e A
+% Decompõe uma matriz A e obtem a esparsidade de L, U e A
 function [] = letraA(A)
   [L,U,P]=lu(A);
-  disp('Esparsidade de A')
+  fprintf('Esparsidade de A: %d elementos nao nulos\n', nnz(A));
   figure
   spy(A)
   pause;
   
-  disp('Esparsidade de L')
+  fprintf('Esparsidade de L: %d elementos nao nulos\n', nnz(L)')
   figure
   spy(L)
   pause;
   
-  disp('Esparsidade de U')
+  fprintf('Esparsidade de U: %d elementos nao nulos\n', nnz(U)')
   figure
   spy(U)
   pause;
@@ -36,75 +36,77 @@ endfunction
 
 fprintf('Trabalhando com a primeira matriz\n')
 letraA(A);
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a segunda matriz\n')
 letraA(B);
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a terceira matriz\n')
 letraA(C);
-fprintf('Tecle enter para seguir para conclusÃµes\n\n')
+fprintf('Tecle enter para seguir para conclusoes\n\n')
 pause;
 
 %%DISCUTIR SOBRE OS RESULTADOS
-disp('CONCLUSÃƒO: ')
+disp('CONCLUSÃO: Podemos observar que a esparsidade das matrizes L e U obtidas é muito menor do que a da matriz A de origem,')
+disp('ou seja, espaços que antes eram nulos, passaram a ser não nulos, ocupando muito mais memória');
+disp('e necessitando de muito tempo para resolvê-las. Dessa forma, concluimos que método direto para matrizes grandes e esparsas não é muito eficiente');
 
 disp('Proximo item...')
 pause;
 
 ######################### LETRA B: #########################
 
-fprintf('b) Calcule a soluÃ§Ã£o do sistema linear onde b=Aâˆ—ones(n,1) e a norma do mÃ¡ximo relativa do resÃ­duo\n\n')
-% Calcula a soluÃ§Ã£o do sistema linear onde b=Aâˆ—ones(n,1) e a norma do maximo relativa ao residuo
+fprintf('b) Calcule a soluçao do sistema linear onde b=A*ones(n,1) e a norma do máximo relativa do resi­duo\n\n')
+% Calcula a solucao do sistema linear onde b=A*ones(n,1) e a norma do maximo relativa ao residuo
 function [x, norm] = letraB(A)
   n=rows(A);
   b=A*ones(n,1);
   x = A\b
   r = b-A*x
-  disp("Norma do mÃ¡ximo relativa ao resÃ­duo")
+  disp("Norma do maximo relativa ao resi­duo")
   norm((b-A*x)/b,inf)
 endfunction
 
 fprintf('Trabalhando com a primeira matriz\n')
 letraB(A)
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a segunda matriz\n')
 letraB(B)
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a terceira matriz\n')
 letraB(C)
-fprintf('Tecle enter para seguir para conclusÃµes\n\n')
+fprintf('Tecle enter para seguir para conclusoes\n\n')
 pause;
 
-%% DISCUTIR SOBRE OS RESULTADOS
-disp('CONCLUSÃƒO: ')
 disp('Proximo item...')
 pause;
 ######################### LETRA C: #########################
-fprintf('c) Calcule o nÃºmero de condicionamento das matrizes escolhidas.')
-fprintf('O que podemos dizer sobre a qualidade da soluÌ§cÌƒao encontrada?')
+fprintf('c) Calcule o numero de condicionamento das matrizes escolhidas.')
+fprintf('O que podemos dizer sobre a qualidade da solucao encontrada?')
 
 fprintf('Trabalhando com a primeira matriz\n')
 cond(A)
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a segunda matriz\n')
 cond(B)
-fprintf('Tecle enter para seguir para prÃ³xima matriz\n\n')
+fprintf('Tecle enter para seguir para proxima matriz\n\n')
 pause;
 
 fprintf('Trabalhando com a terceira matriz\n')
 cond(C)
-fprintf('Tecle enter para seguir para conclusÃµes\n\n')
+fprintf('Tecle enter para seguir para conclusoes\n\n')
 pause;
 
 %%DISCUTIR SOBRE OS RESULTADOS
-disp('CONCLUSÃƒO: ')
+disp('CONCLUSÃO: Para as 3 matrizes, o numero de condicionamento é muito grande, indicando que qualquer')
+disp('alteração nos coeficientes da matriz também altera muito o resultado final, sendo então, a qualidade')
+disp('da solução muito baixa')
