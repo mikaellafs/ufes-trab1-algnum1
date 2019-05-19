@@ -1,4 +1,5 @@
 clc
+clear
 load "bcsstk01.mat";
 A = Problem.A;
 
