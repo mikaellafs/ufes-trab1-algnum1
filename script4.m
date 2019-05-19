@@ -73,21 +73,44 @@ fprintf('\nRecuperando os coeficientes da equação:\nvm = 1/a1 e ks = (a2*vm)^(
 vmCaso2 = 1/result2(1)
 ksCaso2 = (result2(2)*vmCaso2)^(1/2)
 
+disp('Tecle algo para ir para continuar')
+pause;
+disp('')
+
+function [v] = caso1Original(s, vmCaso1, ksCaso1)
+  v = vmCaso1*s/(ksCaso1 + s);
+endfunction
+
+function [z] = caso1Linear(s, result1)
+  z = result1(2)/s + result1(1);
+endfunction
+
+function [v] = caso2Original(s, vmCaso2, ksCaso2)
+  v = vmCaso2*s^2/(ksCaso2^2 + s^2);
+endfunction
+
+function [z] = caso2Linear(s, result2)
+  z = result2(2)/s^2 + result2(1);
+endfunction
+
+disp('Estimando v para [S] = 7')
+fprintf('Caso 1\n\tLinear: %f\n\tOriginal: %f\n',1/caso1Linear(7, result1), caso1Original(7, vmCaso1, ksCaso1))
+fprintf('Caso 2\n\tLinear: %f\n\tOriginal: %f\n',1/caso2Linear(7, result2), caso2Original(7, vmCaso2, ksCaso2))
+
 disp('Tecle algo para ir para o próximo item')
 pause;
 
 ################# LETRA B #################################
 fprintf('\nb)Calcule r2 para os modelos linearizados e originais.\n')
 for i=1:tam
-  Vcaso1Origial(i) = vmCaso1*S(i)/(ksCaso1 + S(i));
-  Vcaso1Linear(i) = result1(2)/S(i) + result1(1);
-  Vcaso2Original(i) = vmCaso2*S(i)^2/(ksCaso2^2 + S(i)^2);
-  Vcaso2Linear(i) = result2(2)/S(i)^2 + result2(1);
+  Vcaso1Origial(i) = caso1Original(S(i), vmCaso1, ksCaso1);
+  Vcaso1Linear(i) = caso1Linear(S(i), result1);
+  Vcaso2Original(i) = caso2Original(S(i), vmCaso2, ksCaso2);
+  Vcaso2Linear(i) = caso2Linear(S(i), result2);
 endfor
 
 r2s = [coef_determinacao(z,Vcaso1Linear), coef_determinacao(v,Vcaso1Origial), coef_determinacao(z,Vcaso2Linear), coef_determinacao(v,Vcaso2Original)];
 fprintf('Caso 1 linear: %f  ; Caso 1 original: %f\nCaso 2 linear: %f  ; Caso 2 original: %f\n', r2s(1), r2s(2), r2s(3), r2s(4))
 
-disp('Observa-se que os modelos lineares apresentam uma qualidade de ajuste maior')
 
-################# LETRA B #################################
+################# LETRA C #################################
