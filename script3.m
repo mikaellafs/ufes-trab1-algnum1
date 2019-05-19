@@ -1,5 +1,5 @@
 clc
-fprintf('QUESTAO 3\nObjetivo: O objetivo desse exercıcio é usar regress̃ao polinomial e ajuste nao-linear')
+fprintf('QUESTAO 3\nObjetivo: O objetivo desse exercıcio é usar regress̃ao polinomial')
 fprintf(' pelo método dos quadrados mínimos, para ajustar polinomios no Octave e resolver aplicações.\n\n')
 
 disp('Os dados a seguir representam o tempo (T), em segundos, de congelamento para um certo volume (V) de uma substância.')
