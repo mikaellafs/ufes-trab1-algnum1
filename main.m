@@ -26,11 +26,15 @@
 function retval = main (input1, input2)
   continuar = 1;
   while(continuar)
-    escolha = menu("Escolha o que quer resolver","Exercicio_1","Exercicio_2");
+    escolha = menu("Escolha o que quer resolver","Sistema Linear - Exercicio_1","Sistema Linear - Exercicio_2","Ajuste - Exercicio_3");
     switch escolha
-      case 1 
-       source("trab.m")
+      case 1
+       source("script1.m")
+      case 2
+       source("script2.m")
+      case 3
+        source("script3.m")
     endswitch
-    continuar = yes_or_no("Quer continuar??");
+    continuar = yes_or_no("Continuar?");
   end 
 endfunction

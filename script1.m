@@ -1,3 +1,4 @@
+clc
 load "bcsstk01.mat";
 A = Problem.A;
 
