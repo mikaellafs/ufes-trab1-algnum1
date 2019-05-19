@@ -68,7 +68,7 @@ disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ######################### LETRA B: #########################
-
+clc;
 fprintf("\nB) Calcule a solução de cada sistema pelos métodos Jacobi, Seidel e Sor para o melhor valor de w encontrado\n\n\n");
 disp("Tecle algo para continuar...")
 pause;
@@ -85,14 +85,14 @@ disp("Tecle algo para continuar...")
 pause;
 
 disp("Método Seidel")
-[x,iter1,res1] = sor (A,b,tol,nmaxiter,1);
+[x,iter1,res1] = sor (A,b,tol,nmaxiter,1)
 
 disp("Tecle algo para continuar...")
 pause;
 
 disp("Método SOR para w = 1.9, como vimos na letra (A)")
 
-[x,iter2,res2] = sor (A,b,tol,nmaxiter,1.9);
+[x,iter2,res2] = sor (A,b,tol,nmaxiter,1.9)
 
 disp("Tecle algo para continuar...")
 pause;
@@ -102,17 +102,17 @@ n = rows(B);
 b = B*ones(n,1);
 fprintf("\n##RESOLVENDO (B) PARA A SEGUNDA MATRIZ##\n\n")
 disp("Método Jacobi")
-[x,iter3,res3] = jacobi(B,b,tol,nmaxiter);
+[x,iter3,res3] = jacobi(B,b,tol,nmaxiter)
 disp("Tecle algo para continuar...")
 pause;
 
 disp("Método Seidel")
-[x,iter4,res4] = sor(B,b,tol,nmaxiter,1);
+[x,iter4,res4] = sor(B,b,tol,nmaxiter,1)
 disp("Tecle algo para continuar...")
 pause;
 
 disp("Método SOR, para w = 1.2 como vimos na letra (A)")
-[x,iter5,res5] = sor(B,b,tol,nmaxiter,1.2);
+[x,iter5,res5] = sor(B,b,tol,nmaxiter,1.2)
 disp("Tecle algo para continuar...")
 pause;
 
@@ -124,16 +124,16 @@ fprintf("Não iremos resolver para Jacobi, vimos na letra (A) que esse método n
 disp("Tecle algo para continuar...")
 pause;
 disp("Método Seidel")
-[x,iter6,res6] = sor(C,b,tol,nmaxiter,1);
+[x,iter6,res6] = sor(C,b,tol,nmaxiter,1)
 disp("Tecle algo para continuar...")
 pause;
 
 disp("Método SOR, para w = 1.2 como vimos na letra (A)")
-[x,iter7,res7] = sor(C,b,tol,nmaxiter,1.2);
+[x,iter7,res7] = sor(C,b,tol,nmaxiter,1.2)
 disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clc;
 ###################LETRA C:######################
 
 fprintf("\nC) Faça o gráfico da norma do máximo relativa do resíduo com relação")
@@ -174,7 +174,7 @@ fprintf(", o vermelho é pelo método de seidel e o magento pelo método SOR\n\n
 disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clc;
 #######################LETRA D:#######################
 fprintf("\nD) Comente suas conclusões sobre o comportamento das matrizes para ")
 fprintf("métodos diretos e iterativos\n\n")
@@ -183,19 +183,19 @@ disp("CONCLUSÃO: ")
 disp("SOBRE MÉTODO DIRETO")
 fprintf("\nPara começar a discussão, vamos falar sobre os erros do metodo direto:\n")
 fprintf("Possui somente erro de ponto flutuante, ou seja erro de arredondamento, ")
-fprintf(" Além de erro pela representação númerica no computador (base binaria). ")
-fprintf(" Outro fator que persegue o método direto são as matrizes mal condicionadas ")
+fprintf(" além de erro pela representação númerica no computador (base binaria). ")
+fprintf(" Outro fator que persegue o método direto são as matrizes mal condicionadas. ")
 fprintf("Aqui elas são passadas despercebidas e nos trazem soluções que parecem otimas ")
 fprintf(" mas na verdade podem estar totalmente distantes da exata.")
 fprintf(" Apesar disso, resolver sistemas com metodos direto nos poupa tempo")
-fprintf(" é um método de solução rápida!\n\n")
+fprintf(", é um método de solução rápida!\n\n")
 
 disp("SOBRE MÉTODOS ITERATIVOS")
-fprintf("\nos erros dos metodos iterativos são, erros de ponto flutuante os mesmos do metodo direto somado com o de truncamento, erros de truncamento são erros trazidos da aproximação de algo por outra coisa, sendo mais objetivo, aproximando uma função de difícil compreensão por uma de fácil compreensão.")
-fprintf("Como o condicionamento de uma matriz está relacionada com o erro relativo ")
-fprintf("Elas são mais fácilmente evitadas aqui! Para saber se um método converge ou não,")
+fprintf("\nOs erros dos metodos iterativos são, erros de ponto flutuante os mesmos do metodo direto somado com o de truncamento, erros de truncamento são erros trazidos da aproximação de algo por outra coisa, sendo mais objetivo, aproximando uma função de difícil compreensão por uma de fácil compreensão.")
+fprintf(" Como o condicionamento de uma matriz está relacionada com o erro relativo ")
+fprintf(", elas são mais fácilmente evitadas aqui! Para saber se um método converge ou não,")
 fprintf(" usamos o teorema do raio espectral. Mesmo o metodo iterativo sendo um bom método")
-fprintf(" tem um ponto negativo, que mesmo matrizes que convergem, dependendo do tamanho")
+fprintf(", tem um ponto negativo, que mesmo sistemas que convergem, dependendo do tamanho")
 fprintf(" podem demorar muito tempo para mostrar resultado.\n\n")
 
 disp("FIM DO EXÉRCICIO 2!!!")
