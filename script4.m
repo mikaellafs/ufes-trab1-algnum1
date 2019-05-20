@@ -135,22 +135,30 @@ title("[S] X v")
 xlabel("[S]")
 ylabel("v");
 figure;
-plot(S,Vcaso1Linear)
+S2 = S.^(-1);
+v1 = v.^(-1);
+hold on
+plot(S2,Vcaso1Linear,";Caso 1 linear 1;")
+scatter(S2,v1,'m')
 title("1/[S] X 1/v")
 xlabel("1/[S]")
 ylabel("1/v")
+hold off
 figure;
-plot(S,Vcaso2Linear)
+S3 = S.^(-2);
+hold on
+plot(S3,Vcaso2Linear,";Caso 2 linear;")
+scatter(S3,v1,'m')
 title("1/[S]² X 1/v")
 xlabel("1/[S]²")
 ylabel("1/v")
+hold off
 disp("Tecle algo para continuar...")
 pause;
 figure;
 printf("\nGráfico dos ajustes ja originais\n\n ")
 hold on
-plot(S,Vcaso1Origial,'-b')
-plot(S,Vcaso2Original,'-r')
+plot(S,Vcaso1Origial,";Caso 1 original;",S,Vcaso2Original,";Caso 2 original;");
 scatter(S,v,'m')
 hold off
 disp("Tecle algo para continuar...")
