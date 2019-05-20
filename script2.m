@@ -121,6 +121,8 @@ n = rows(C);
 b = C*ones(n,1);
 fprintf("\n##RESOLVENDO (B) PARA A TERCEIRA MATRIZ##\n\n")
 fprintf("Não iremos resolver para Jacobi, vimos na letra (A) que esse método não converge\n\n")
+fprintf("\n ATENÇAO PARA O PROXIMO METODO SERAO EM CERCA DE 1 HORA DE ESPERA\n")
+fprintf(" PARA O METODO SEGUINTE CERCA DE 40 MIN \n")
 disp("Tecle algo para continuar...")
 pause;
 disp("Método Seidel")
@@ -198,4 +200,5 @@ fprintf(" usamos o teorema do raio espectral. Mesmo o metodo iterativo sendo um 
 fprintf(", tem um ponto negativo, que mesmo sistemas que convergem, dependendo do tamanho")
 fprintf(" podem demorar muito tempo para mostrar resultado.\n\n")
 
-disp("FIM DO EXÉRCICIO 2!!!")
+disp("FIM DA QUESTAO!!")
+clear all;
