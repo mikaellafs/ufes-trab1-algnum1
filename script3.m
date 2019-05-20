@@ -34,13 +34,10 @@ endfor
 disp('Testando para polinomios de grau 1 a 6')
 disp('Tabela de coeficientes de determinacao e variancia para cada polinomio de grau m')
 disp("")
-fprintf("m =>")
 m = [1:6];
-disp(m)
-fprintf("\nr²  | ")
-disp(coefDeterminacao)
-fprintf("\nvar | ")
-disp(variancias)
+fprintf("\nGrau| %f | %f | %f | %f | %f | %f |",1,2,3,4,5,6)
+fprintf("\nr²  | %f | %f | %f | %f | %f | %f |",coefDeterminacao)
+fprintf("\nvar | %f | %f | %f | %f | %f | %f |\n",variancias)
 disp("")
 disp('Observando a tabela, podemos concluir que o polinomio de grau 3 é o mais adequado para o ajuste,')
 disp('porque apresenta um bom coeficiente de determinacao e uma boa variancia tambem, já que para o grau 4 ')
@@ -54,13 +51,18 @@ fprintf('T = %f\n\n', polyval(p3,2.8))
 
 disp('Tecle algo para plotar o grafico do polinomio escolhido com os pontos da tabela')
 pause;
-
-for i=1:length(V)
-  Tfit(i) = polyval(p3, V(i));
+V1 = linspace(2.6,3.1,100);
+for i=1:length(V1)
+  Tfit(i) = polyval(p3, V1(i));
 endfor
 
 %plotando grafico de dispersao com o polinomio do ajuste
 hold on
-plot(V,Tfit, 'b')
+plot(V1,Tfit, 'b')
 scatter(V, T, 'm')
 hold off
+
+disp("Tecle algo para continuar...")
+pause;
+disp("FIM DA QUESTAO!!")
+clear all;
