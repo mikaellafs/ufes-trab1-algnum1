@@ -1,5 +1,5 @@
-clc
-clear
+clc;
+clear all;
 fprintf('QUESTAO 3\nObjetivo: O objetivo desse exercıcio é usar regress̃ao polinomial')
 fprintf(' pelo método dos quadrados mínimos, para ajustar polinomios no Octave e resolver aplicações.\n\n')
 
@@ -33,10 +33,15 @@ for i=1:6
 endfor
 disp('Testando para polinomios de grau 1 a 6')
 disp('Tabela de coeficientes de determinacao e variancia para cada polinomio de grau m')
-m = [1:6]
-coefDeterminacao
-variancias
-
+disp("")
+fprintf("m =>")
+m = [1:6];
+disp(m)
+fprintf("\nr²  | ")
+disp(coefDeterminacao)
+fprintf("\nvar | ")
+disp(variancias)
+disp("")
 disp('Observando a tabela, podemos concluir que o polinomio de grau 3 é o mais adequado para o ajuste,')
 disp('porque apresenta um bom coeficiente de determinacao e uma boa variancia tambem, já que para o grau 4 ')
 disp('a variancia aumenta, indicando que o grau 3 já é suficiente')
