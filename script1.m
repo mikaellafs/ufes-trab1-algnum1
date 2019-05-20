@@ -112,3 +112,8 @@ pause;
 disp('CONCLUSÃO: Para as 3 matrizes, o numero de condicionamento é muito grande, indicando que qualquer')
 disp('alteração nos coeficientes da matriz também altera muito o resultado final, sendo então, a qualidade')
 disp('da solução muito baixa')
+disp("Tecle algo para continuar...")
+pause;
+
+disp("FIM DA QUESTAO!!")
+clear all;
