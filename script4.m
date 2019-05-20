@@ -1,5 +1,5 @@
-clc
-clear
+clc;
+clear all;
 fprintf('QUESTAO 4\nObjetivo: O objetivo desse exercıcio é usar ajuste nao-linear')
 fprintf(' pelo método dos quadrados mínimos, para ajustar polinomios no Octave e resolver aplicações.\n\n')
 
@@ -112,5 +112,82 @@ endfor
 r2s = [coef_determinacao(z,Vcaso1Linear), coef_determinacao(v,Vcaso1Origial), coef_determinacao(z,Vcaso2Linear), coef_determinacao(v,Vcaso2Original)];
 fprintf('Caso 1 linear: %f  ; Caso 1 original: %f\nCaso 2 linear: %f  ; Caso 2 original: %f\n', r2s(1), r2s(2), r2s(3), r2s(4))
 
-
+disp("Tecle algo para continuar...")
+pause;
 ################# LETRA C #################################
+fprintf("\nC) Faça os gráficos das soluções linearizadas (Caso1:(1/[S] X 1/v) e Caso2:(1/[S]² X 1/v))")
+fprintf(" e originais ([S] X v). Mostre em um mesmo gráfico a curva do ajuste junto com os ")
+fprintf("pontos tabelados.\n\n")
+disp("Tecle algo para continuar...")
+pause;
+fprintf("\nS ==>")
+disp(S)
+fprintf("\n v ==>")
+disp(v)
+fprintf("\nzCaso1linear ==>")
+disp(Vcaso1Linear)
+fprintf("\nzCaso2linear ==>")
+disp(Vcaso2Linear)
+fprintf("\n Segue a seguir os gráficos gerados para [S] X v, 1/[S] X 1/v e 1/[S]² X 1/v.\n\n")
+figure;
+plot(S,v,'-k')
+title("[S] X v")
+xlabel("[S]")
+ylabel("v");
+figure;
+plot(S,Vcaso1Linear)
+title("1/[S] X 1/v")
+xlabel("1/[S]")
+ylabel("1/v")
+figure;
+plot(S,Vcaso2Linear)
+title("1/[S]² X 1/v")
+xlabel("1/[S]²")
+ylabel("1/v")
+disp("Tecle algo para continuar...")
+pause;
+figure;
+printf("\nGráfico dos ajustes ja originais\n\n ")
+hold on
+plot(S,Vcaso1Origial,'-b')
+plot(S,Vcaso2Original,'-r')
+scatter(S,v,'m')
+hold off
+disp("Tecle algo para continuar...")
+pause;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+####################### LETRA D ####################################
+fprintf("\nD) Analise qual caso forneceu um ajuste mais adequado, baseado nos valores estimados ")
+fprintf("para [S] = 7, medidas estatisticas e gráficos dos ajustes.\n\n")
+disp("Tecle algo para continuar...")
+pause;
+fprintf("\nCoeficiente de determinação caso1 ajuste =>")
+disp(r2s(2))
+fprintf("\nCoeficiente de determinação caso2 ajuste =>")
+disp(r2s(4))
+fprintf("\nAproximação de S = 7 para caso1 =>")
+disp(caso1Original(7,vmCaso1,ksCaso1))
+fprintf("\nAproximação de S = 7 para caso2 =>")
+disp(caso2Original(7,vmCaso2,ksCaso2))
+fprintf("\nValor de v quando S = 6 =>")
+disp(v(5))
+fprintf("\nValor de v quando S = 8 =>")
+disp(v(6))
+disp("Tecle algo para continuar...")
+pause;
+fprintf("\nPelo grafico de ajustes gerado na questão C, vimos que o ajuste que mais")
+fprintf(" se adequa a equação original é o caso2, sua linha está quase totalmente colidindo")
+fprintf(" com os pontos da equação original. Podemos confirmar isso com os dados de coeficiente de determinação")
+fprintf(" e os valores que achamos para cada uma aproximação de S = 7... Observando os valores antes e depois de S = 7")
+fprintf(" ou seja S=6 e S=8...\n")
+fprintf("Sobre o coeficiente de determinação o caso2 ja se destaca, o caso1 é 0.6+- enquanto o caso2")
+fprintf(" chega a um valor de 0.9+- ou seja bem proximo de 1 o que nos diz ser nossa melhor escolha")
+fprintf(" pelos dados estatisticos. Já pela aproximação de [S]=7, caso1 temos um valor de 0.39473,")
+fprintf(" enquando no caso2 nosso valor é de 0.35154... E os extremos onde [S] = 6 é 0.335")
+fprintf(" e [S] = 8 é 0.35... Vemos assim que claramente o segundo caso é a melhor escolha!!\n\n")
+
+disp("Tecle algo para continuar...")
+pause;
+disp("FIM DA QUESTÃO!!")
+close all;
