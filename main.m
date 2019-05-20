@@ -7,6 +7,15 @@
 ## 
 ## This program is distributed in the hope that it will be useful, but
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or## Copyright (C) 2019 gabri
+## 
+## This program is free software: you can redistribute it and/or modify it
+## under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 ## 
@@ -26,7 +35,7 @@
 function retval = main (input1, input2)
   continuar = 1;
   while(continuar)
-    escolha = menu("Escolha o que quer resolver","Sistema Linear - Exercicio_1","Sistema Linear - Exercicio_2","Ajuste - Exercicio_3");
+    escolha = menu("Escolha o que quer resolver","Sistema Linear - Exercicio_1","Sistema Linear - Exercicio_2","Ajuste - Exercicio_3","Ajuste - Exercicio_4");
     switch escolha
       case 1
        source("script1.m")
@@ -34,7 +43,10 @@ function retval = main (input1, input2)
        source("script2.m")
       case 3
         source("script3.m")
+      case 4
+        source("script4.m")
     endswitch
     continuar = yes_or_no("Continuar?");
-  end 
+  end
+  fprintf("\nObrigado e volte sempre, saudações!\n") 
 endfunction
