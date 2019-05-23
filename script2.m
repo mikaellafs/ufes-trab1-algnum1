@@ -24,23 +24,23 @@ function [] = letraA(A,w)
   [v,lambda]=eig(MJ);
   fprintf('MATRIZ JACOBI\n\n')
   if ((max(abs(diag(lambda))))>=1.0) 
-            fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+            fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")
   else
-      fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
+      fprintf("Converge, pois o raio espectral da matriz é menor que 1.\n\n");
   endif
   fprintf('MATRIZ SEIDEL\n\n')
   [v,lambda]=eig(MS);
   if ((max(abs(diag(lambda))))>=1.0) 
-            fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+            fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")
    else 
-            fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
+            fprintf("Converge, pois o raio espectral da matriz é menor que 1.\n\n");
   endif
   fprintf('MATRIZ SOR\n\n')
   [v,lambda] = eig(MSOR);
   if ((max(abs(diag(lambda))))>=1.0) 
-      fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")  
+      fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")  
   else
-      fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
+      fprintf("Converge, pois o raio espectral da matriz é menor que 1.\n\n");
   endif
 endfunction
 ##PARA A PRIMEIRA MATRIZ##
@@ -64,13 +64,13 @@ pause;
 ##PARA A TERCEIRA MATRIZ##
 fprintf("\n##RESOLVENDO (A) PARA A TERCEIRA MATRIZ##\n\n")
 disp("MATRIZ JACOBI")
-fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")
 disp("MATRIZ SEIDEL")
-fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")
 disp("MATRIZ SOR")
 fprintf(" w | 1.2 | 1.9 | 1.3 | 0.5 |\n")
 fprintf("lb | 1.0 | 1.0 | 1.0 | 1.0 |\n\n")
-fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+fprintf("Não converge, pois não foi satisfeito que o raio espectral da matriz seja menor que 1.\n\n")
 fprintf("Não houve valor melhor encontrado para 'W', não importando o w o maior lambda em modulo sempre dá maior que 1\n\n")
 disp("Tecle algo para continuar...")
 pause;
