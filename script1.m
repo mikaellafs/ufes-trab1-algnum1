@@ -91,7 +91,7 @@ disp('Proximo item...')
 pause;
 ######################### LETRA C: #########################
 fprintf('c) Calcule o numero de condicionamento das matrizes escolhidas.')
-fprintf('O que podemos dizer sobre a qualidade da solucao encontrada?')
+fprintf('O que podemos dizer sobre a qualidade da solucao encontrada?\n\n')
 
 fprintf('Trabalhando com a primeira matriz\n')
 cond(A)
