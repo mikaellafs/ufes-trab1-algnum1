@@ -1,11 +1,12 @@
 clc;
+clear all;
 load "bcsstk01.mat";
 A = Problem.A;
 
 load "fs_183_3.mat";
 B = Problem.A;
 
-load "hor_131.mat";
+load "plat362.mat";
 C = Problem.A;
 
 fprintf('QUESTÃO 2\nObjetivo: O objetivo desse exercício  ́e observar o comportamento dos métodos iterativos estudados, para cada ')
@@ -22,32 +23,31 @@ function [] = letraA(A,w)
   [MJ,MS,MSOR] = fatora (A,w);
   [v,lambda]=eig(MJ);
   fprintf('MATRIZ JACOBI\n\n')
-  if (max(abs(diag(lambda)))<1) 
-      fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
+  if ((max(abs(diag(lambda))))>=1.0) 
+            fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
   else
-      fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+      fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
   endif
-
   fprintf('MATRIZ SEIDEL\n\n')
   [v,lambda]=eig(MS);
-  if (max(abs(diag(lambda)))<1) 
-      fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
+  if ((max(abs(diag(lambda))))>=1.0) 
+            fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
    else 
-      fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+            fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
   endif
   fprintf('MATRIZ SOR\n\n')
   [v,lambda] = eig(MSOR);
-  if (max(abs(diag(lambda)))<1) 
+  if ((max(abs(diag(lambda))))>=1.0) 
+      fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")  
+  else
       fprintf("Converge, pois o max lambda em modulo da matriz é menor que 1.\n\n");
-      disp("Valor do maior lambda em modulo")
-      disp(max(abs(diag(lambda))));
-  else 
-      fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
   endif
 endfunction
 ##PARA A PRIMEIRA MATRIZ##
 fprintf("##RESOLVENDO (A) PARA PRIMEIRA MATRIZ##\n\n")
 letraA(A,1.9);
+fprintf(" w | 1.90000 | 1.20000 | 1.40000 | 0.50000 |\n")
+fprintf("lb | 0.90496 | 0.99537 | 0.99279 | 0.99897 |\n\n")
 fprintf("\nO valor do 'W' utilizado foi 1.9, a partir dos teste vimos que é ")
 fprintf("o melhor valor pois nos retornar o menor max lambda em modulo e converge.\n\n")
 disp("Tecle algo para continuar...")
@@ -55,15 +55,23 @@ pause;
 ##PARA A SEGUNDA MATRIZ##
 fprintf("\n##RESOLVENDO (A) PARA A SEGUNDA MATRIZ##\n\n")
 letraA(B,1.2);
+fprintf(" w | 1.90000 | 1.20000 | 1.40000 | 0.50000 |\n")
+fprintf("lb | 2.28350 | 0.84220 | 1.18670 | 0.95425 |\n\n")
 fprintf("\n O valor otimo de 'W' econtrado foi 1.2, visto que")
 fprintf(" foi o min max lambda em modulo retornado e que convergiu.\n\n")
 disp("Tecle algo para continuar...")
 pause;
 ##PARA A TERCEIRA MATRIZ##
 fprintf("\n##RESOLVENDO (A) PARA A TERCEIRA MATRIZ##\n\n")
-letraA(C,1.2);
-fprintf("\n O valor melhor encontrado para 'W' foi 1.9, onde o metodo")
-fprintf(" converge e retorna o min max lambda em modulo\n\n")
+disp("MATRIZ JACOBI")
+fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+disp("MATRIZ SEIDEL")
+fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+disp("MATRIZ SOR")
+fprintf(" w | 1.2 | 1.9 | 1.3 | 0.5 |\n")
+fprintf("lb | 1.0 | 1.0 | 1.0 | 1.0 |\n\n")
+fprintf("Não converge, pois não foi satisfeito que o max lambda da matriz seja menor que 1.\n\n")
+fprintf("Não houve valor melhor encontrado para 'W', não importando o w o maior lambda em modulo sempre dá maior que 1\n\n")
 disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,37 +109,28 @@ pause;
 n = rows(B);
 b = B*ones(n,1);
 fprintf("\n##RESOLVENDO (B) PARA A SEGUNDA MATRIZ##\n\n")
+disp("Esse método vai demorar 50s para resolver!")
+disp("Tecle algo para continuar")
+pause;
 disp("Método Jacobi")
 [x,iter3,res3] = jacobi(B,b,tol,nmaxiter)
+disp("O próximo método demora 40s para resolver!")
 disp("Tecle algo para continuar...")
 pause;
-
 disp("Método Seidel")
 [x,iter4,res4] = sor(B,b,tol,nmaxiter,1)
+disp("O próximo demora 25s para resolver!")
 disp("Tecle algo para continuar...")
 pause;
-
 disp("Método SOR, para w = 1.2 como vimos na letra (A)")
 [x,iter5,res5] = sor(B,b,tol,nmaxiter,1.2)
 disp("Tecle algo para continuar...")
 pause;
 
 ##PARA A TERCEIRA MATRIZ##
-n = rows(C);
-b = C*ones(n,1);
 fprintf("\n##RESOLVENDO (B) PARA A TERCEIRA MATRIZ##\n\n")
-fprintf("Não iremos resolver para Jacobi, vimos na letra (A) que esse método não converge\n\n")
-fprintf("\n ATENÇAO PARA O PROXIMO METODO SERAO EM CERCA DE 1 HORA DE ESPERA\n")
-fprintf(" PARA O METODO SEGUINTE CERCA DE 40 MIN \n")
-disp("Tecle algo para continuar...")
-pause;
-disp("Método Seidel")
-[x,iter6,res6] = sor(C,b,tol,nmaxiter,1)
-disp("Tecle algo para continuar...")
-pause;
-
-disp("Método SOR, para w = 1.2 como vimos na letra (A)")
-[x,iter7,res7] = sor(C,b,tol,nmaxiter,1.2)
+fprintf("Essa matriz não convergiu para nenhum método, logo não iremos resolver\n\n")
+fprintf("Seria um trabalho demorado sem necessidade, pois já sabemos que não ocorre sua convergencia\n\n")
 disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -147,32 +146,26 @@ disp("Tecle algo para continuar...")
 pause;
 ##PARA A PRIMEIRA MATRIZ##
 fprintf("\n##RESOLVENDO (C) PARA A PRIMEIRA MATRIZ##\n\n")
-plot(1:iter1,res1,'-k',1:iter2,res2,'-r');
+plot(1:iter1,res1,";Seidel;",1:iter2,res2,";Sor;");
 title("--METODO SEIDEL E SOR DA MATRIZ A--");
 xlabel("iterações");
 ylabel("NormaResidualMax");
-fprintf("\nGrafico gerado somente para os métodos seidel e sor, foram os únicos que convergiram")
-fprintf(", o preto é pelo método de seidel e o vermelho pelo método SOR\n\n")
+fprintf("\nGrafico gerado somente para os métodos seidel e sor, foram os únicos que convergiram\n\n")
 disp("Tecle algo para continuar...")
 pause;
 ##PARA A SEGUNDA MATRIZ##
 fprintf("\n##RESOLVENDO (C) PARA A SEGUNDA MATRIZ##\n\n")
-plot(1:iter3,res3,'-c',1:iter4,res4,'-g',1:iter5,res5,'-b');
+plot(1:iter3,res3,";Jacobi;",1:iter4,res4,";Seidel;",1:iter5,res5,";Sor;");
 title("--METODO JACOBI,SEIDEL E SOR--");
 xlabel("iterações");
 ylabel("NormaResidualMax");
-fprintf("\nGrafico gerado para os métodos jacobi, seidel e sor")
-fprintf(", o ciano é pelo método de jacobi, o verde para o método seidel, e o azul para o SOR\n\n")
+fprintf("\nGrafico gerado para os métodos jacobi, seidel e sor\n\n")
 disp("Tecle algo para continuar...")
 pause;
 ##PARA A TERCEIRA MATRIZ##
 fprintf("##RESOLVENDO (C) PARA A TERCEIRA MATRIZ##\n\n")
-plot(1:iter6,res6,'-r',1:iter7,res7,'-m');
-title("--METODO SEIDEL E SOR--");
-xlabel("iterações");
-ylabel("NormaResidualMax");
-fprintf("\nGrafico gerado somente para os métodos seidel e sor, foram os únicos que convergiram")
-fprintf(", o vermelho é pelo método de seidel e o magento pelo método SOR\n\n")
+fprintf("Como não resolvemos o sistema para a terceira matriz devido a sua não convergencia")
+fprintf(" para todos os metods, logo não geramos o grafico aqui!\n\n")
 disp("Tecle algo para continuar...")
 pause;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,6 +192,7 @@ fprintf(", elas são mais fácilmente evitadas aqui! Para saber se um método co
 fprintf(" usamos o teorema do raio espectral. Mesmo o metodo iterativo sendo um bom método")
 fprintf(", tem um ponto negativo, que mesmo sistemas que convergem, dependendo do tamanho")
 fprintf(" podem demorar muito tempo para mostrar resultado.\n\n")
-
-disp("FIM DA QUESTAO!!")
+disp("Tecle algo para continuar")
+pause;
+disp("FIM DA QUESTÃO!!")
 clear all;
