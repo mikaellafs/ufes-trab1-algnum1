@@ -129,12 +129,13 @@ disp(Vcaso1Linear)
 fprintf("\nzCaso2linear ==>")
 disp(Vcaso2Linear)
 fprintf("\n Segue a seguir os gráficos gerados para [S] X v, 1/[S] X 1/v e 1/[S]² X 1/v.\n\n")
-figure;
 plot(S,v,'-k')
 title("[S] X v")
 xlabel("[S]")
 ylabel("v");
-figure;
+disp("Tecle algo para continuar...")
+pause;
+close;
 S2 = S.^(-1);
 v1 = v.^(-1);
 hold on
@@ -144,7 +145,9 @@ title("1/[S] X 1/v")
 xlabel("1/[S]")
 ylabel("1/v")
 hold off
-figure;
+disp("Tecle algo para continuar...")
+pause;
+close;
 S3 = S.^(-2);
 hold on
 plot(S3,Vcaso2Linear,";Caso 2 linear;")
@@ -155,7 +158,7 @@ ylabel("1/v")
 hold off
 disp("Tecle algo para continuar...")
 pause;
-figure;
+close;
 printf("\nGráfico dos ajustes ja originais\n\n ")
 hold on
 plot(S,Vcaso1Origial,";Caso 1 original;",S,Vcaso2Original,";Caso 2 original;");
@@ -163,6 +166,7 @@ scatter(S,v,'m')
 hold off
 disp("Tecle algo para continuar...")
 pause;
+close;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ####################### LETRA D ####################################
