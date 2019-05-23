@@ -35,7 +35,7 @@ disp('Testando para polinomios de grau 1 a 6')
 disp('Tabela de coeficientes de determinacao e variancia para cada polinomio de grau m')
 disp("")
 m = [1:6];
-fprintf("\nGrau| %f | %f | %f | %f | %f | %f |",1,2,3,4,5,6)
+fprintf("\nGrau|     %d    |     %d    |     %d    |     %d    |     %d    |     %d    |",1,2,3,4,5,6)
 fprintf("\nr²  | %f | %f | %f | %f | %f | %f |",coefDeterminacao)
 fprintf("\nvar | %f | %f | %f | %f | %f | %f |\n",variancias)
 disp("")
